@@ -81,7 +81,7 @@ const SeachFilter = ({ handleFilterChange }) => {
   const handleCategoryChange = (categoryId) => {
     setSelectedCategories((prevCategory) => {
       const newCategories = prevCategory.includes(categoryId)
-        ? prevCategory.filter(id !== categoryId)
+      ? prevCategory.filter((id) => id !== categoryId)
         : [...prevCategory, categoryId];
 
       handleFilterChange(newCategories, sortByPrice);
