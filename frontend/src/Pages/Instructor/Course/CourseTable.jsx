@@ -20,7 +20,7 @@ const CourseTable = () => {
   if (isLoading) {
     return <Loader2 />;
   }
-  console.log("data", data.data);
+  // console.log("data", data.data);
 
   return (
     <div>

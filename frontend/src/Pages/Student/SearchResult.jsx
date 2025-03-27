@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SearchResult = ({ course }) => {
-  console.log("course at result", course);
+  // console.log("course at result", course);
 
   return (
     <div className="flex flex-col  md:flex-row justify-between items-start md:items-center border-b border-gray-300 py-3 shadow-md gap-4 ">
@@ -20,7 +20,7 @@ const SearchResult = ({ course }) => {
           <h1 className="font-bold text-lg md:text-xl">{course.title}</h1>
           <p className="text-sm text-gray-600"> {course.subtitle}</p>
           <p className="text-sm text-gray-700">
-            Instructor: <span className="font-bold ">Vegda Krunal</span>
+            Instructor: <span className="font-bold ">Click to expand</span>
           </p>
           <Badge className="w-fit mt-2 md:mt-0">{course.courseLevel}</Badge>
         </div>

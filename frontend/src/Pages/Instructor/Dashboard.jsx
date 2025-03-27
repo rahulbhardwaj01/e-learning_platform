@@ -15,7 +15,7 @@ function Dashboard() {
   const { data, isSuccess, isError, error, isLoading } =
     useGetPurchasedCourseQuery();
 
-  console.log("data", data);
+  // console.log("data", data);
 
   if (isLoading) {
     return "error";

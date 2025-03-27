@@ -26,13 +26,13 @@ function Profile() {
   // Profile Fetch PArt
   const { data, isLoading, refetch } = useLoadUserQuery();
   const user = data?.data || {};
-  console.log(user);
+  // console.log(user);
 
   const [
     updateUser,
     { data: updateUserData, isLoading: formLoading, error, isSuccess, isError },
   ] = useUpdateUserMutation();
-  console.log("data", data);
+  // console.log("data", data);
 
   // Update profile
   const [username, setUsername] = useState("");
@@ -45,7 +45,7 @@ function Profile() {
   };
 
   const updateUserHandler = async () => {
-    console.log("username", username, "avatar", avatar);
+    // console.log("username", username, "avatar", avatar);
     const formData = new FormData();
     formData.append("username", username);
     formData.append("avatarFile", avatar);

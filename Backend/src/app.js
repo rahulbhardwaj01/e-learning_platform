@@ -1,10 +1,13 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import path from "path";
+
 
 const app = express();
 
-console.log("App CORS_ORIGIN:", process.env.CORS_ORIGIN);
+// console.log("App CORS_ORIGIN:", process.env.CORS_ORIGIN);
+const DIRNAME = path.resolve();
 
 app.use(
   cors({
@@ -30,4 +33,11 @@ app.use("/api/v1/lecture", lectureRoutes);
 app.use("/api/v1/purchase", router);
 app.use("/api/v1/progress", courseProgressRouter);
 
+
+app.use(express.static(path.join(DIRNAME,"/Frontend/dist")));
+ app.use("*",(_,res)=> {
+     res.sendFile(path.resolve(DIRNAME, "Frontend", "dist","index.html"));
+ });
+
+ 
 export default app;

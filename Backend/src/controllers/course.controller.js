@@ -11,7 +11,7 @@ import { Lecture } from "../models/lecture.model.js";
 
 const createCourse = asyncHandler(async (req, res) => {
   const { title, category } = req.body;
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
 
   if (!title || !category) {
     throw new ApiError(400, "Course Title And Category must be provided");
@@ -30,7 +30,7 @@ const createCourse = asyncHandler(async (req, res) => {
 
 const searchCourse = asyncHandler(async (req, res) => {
   const { query = "", categories = "", sortByPrice = "" } = req.query;
-  console.log(req.query);
+  // console.log(req.query);
 
   const searchCriteria = {
     isPublished: true,
@@ -104,8 +104,8 @@ const getCreatorCourses = asyncHandler(async (req, res) => {
 });
 
 const updateCourse = asyncHandler(async (req, res) => {
-  console.log("req", req.body);
-  console.log(req.file);
+  // console.log("req", req.body);
+  // console.log(req.file);
 
   const { courseId } = req.params;
   const { title, subtitle, description, category, price, courseLevel } =
@@ -176,7 +176,7 @@ const deleteCourse = asyncHandler(async (req, res) => {
   try {
     if (deleteCourse.thumbnail) {
       const thumbnailId = deleteCourse.thumbnail.split("/").pop().split(".")[0];
-      console.log("thumbnailId", thumbnailId);
+      // console.log("thumbnailId", thumbnailId);
       await deleteMediaFromCloudinary(thumbnailId);
     }
   } catch (error) {

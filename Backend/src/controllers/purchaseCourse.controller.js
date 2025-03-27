@@ -103,18 +103,18 @@ export const stripeWebhook = async (req, res) => {
 
   // Handle the checkout session completed event
   if (event.type === "checkout.session.completed") {
-    console.log("check session complete is called");
+    // console.log("check session complete is called");
 
     try {
       const session = event.data.object;
-      console.log("session", session);
+      // console.log("session", session);
 
       const purchase = await purchaseCourse
         .findOne({
           PaymentId: session.id,
         })
         .populate({ path: "courseId" });
-      console.log("purchase", purchase);
+      // console.log("purchase", purchase);
 
       if (!purchase) {
         return res.status(404).json({ message: "Purchase not found" });
@@ -134,7 +134,7 @@ export const stripeWebhook = async (req, res) => {
       }
 
       await purchase.save();
-      console.log(purchase, "purchaseWebhook");
+      // console.log(purchase, "purchaseWebhook");
 
       // Update user's enrolledCourses
       await User.findByIdAndUpdate(
@@ -150,7 +150,7 @@ export const stripeWebhook = async (req, res) => {
         { new: true }
       );
     } catch (error) {
-      console.error("Error handling event:", error);
+      // console.error("Error handling event:", error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   }
@@ -161,8 +161,8 @@ export const getCourseDetailWithPurchaseStatus = async (req, res) => {
   try {
     const { courseId } = req.params;
     const userId = req.user._id;
-    console.log("userid", req.user._id);
-    console.log("courseid", courseId);
+    // console.log("userid", req.user._id);
+    // console.log("courseid", courseId);
 
     const course = await Course.findById(courseId)
       .populate({ path: "creator" })
@@ -175,7 +175,7 @@ export const getCourseDetailWithPurchaseStatus = async (req, res) => {
       userId: userId,
       courseId: courseId,
     });
-    console.log("purchased", purchased);
+    // console.log("purchased", purchased);
 
     return res.status(200).json({
       course,

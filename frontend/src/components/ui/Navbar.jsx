@@ -47,7 +47,7 @@ function Navbar() {
   const role = userdata?.user?.role;
 
   const avatar = userdata.user?.avatar || null;
-  console.log("avatar", avatar);
+  // console.log("avatar", avatar);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

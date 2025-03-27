@@ -11,7 +11,7 @@ const generateAccessAndRefreshTokens = async (userId) => {
     const refreshToken = await user.generateRefreshToken();
 
     user.refreshToken = refreshToken;
-    console.log("refreshToken", refreshToken);
+    // console.log("refreshToken", refreshToken);
     await user.save({ validateBeforeSave: false }); //savind refreshtoken into database
 
     return { accessToken, refreshToken };
@@ -72,7 +72,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
     user._id
   );
-  console.log("acees", accessToken);
+  // console.log("acees", accessToken);
 
   const loggedinUser = await User.findById(user._id).select(
     "-password -refreshToken"

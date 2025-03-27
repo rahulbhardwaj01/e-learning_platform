@@ -25,7 +25,7 @@ const SearchPage = () => {
   const isEmpty = !isLoading && data.data?.length === 0;
   console.log(isEmpty);
   
-  console.log("data", data);
+  // console.log("data", data);
 
   const handleFilterChange = (categories, price) => {
     setSelectedCategories(categories);

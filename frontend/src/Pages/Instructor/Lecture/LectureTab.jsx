@@ -34,7 +34,7 @@ function LectureTab() {
     error: lectureError,
   } = useGetLectureByIdQuery(lectureId);
 
-  console.log("lectureData", lectureData);
+  // console.log("lectureData", lectureData);
 
   //? Remove Lecture
   const deleteLectureHandler = async () => {
@@ -69,7 +69,7 @@ function LectureTab() {
     const file = e.target.files[0];
     if (file) {
       setUploadVideoFile(file);
-      console.log(file);
+      // console.log(file);
     }
   };
 

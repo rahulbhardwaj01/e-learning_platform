@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 const PurchaseCourseBtn = ({ courseId }) => {
-  console.log(courseId);
+  // console.log(courseId);
 
   const [createCheckoutsession, { data, isSuccess,isLoading, isError, error }] =
     useCreateCheckOutSessionMutation({ courseId });
@@ -13,7 +13,7 @@ const PurchaseCourseBtn = ({ courseId }) => {
   const purchaseCourseHandler = async () => {
     await createCheckoutsession({ courseId });
   };
-  console.log("data", data, isSuccess);
+  // console.log("data", data, isSuccess);
 
   useEffect(() => {
     if (isSuccess) {

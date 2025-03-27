@@ -117,7 +117,7 @@ function CourseTab() {
   // Use Effect for Updating Course
   useEffect(() => {
     if (isSuccess) {
-      console.log("data", data);
+      // console.log("data", data);
       navigate(`/admin/course`);
       toast.success(data?.message || "Course Updated Succesfully");
     }
@@ -132,7 +132,7 @@ function CourseTab() {
     usePublishCourseMutation();
 
   const publishHandler = async (action) => {
-    console.log("action", action);
+    // console.log("action", action);
 
     try {
       const response = await publishCourse({ courseId, query: action });

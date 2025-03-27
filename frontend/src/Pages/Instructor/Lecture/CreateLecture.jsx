@@ -24,7 +24,7 @@ function CreateLecture() {
     refetch,
   } = useGetUserLectureQuery({ courseId });
 
-  console.log("lecture", lectureData?.data);
+  // console.log("lecture", lectureData?.data);
 
   // for Creating any lecture
   const [createLecture, { data, isLoading, isSuccess, error }] =

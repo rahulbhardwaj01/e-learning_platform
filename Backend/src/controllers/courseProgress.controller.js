@@ -7,7 +7,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 const getCourseProgress = asyncHandler(async (req, res) => {
   const { courseId } = req.params;
   const userId = req.user._id;
-  console.log("userId", userId);
+  // console.log("userId", userId);
 
   //   step-1 Fetch user course progress
   let course_progress = await courseProgress
